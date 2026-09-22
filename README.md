@@ -11,6 +11,9 @@
 **Instructor:** Eric Maniraguha
 
 **Oracle Environment:** Oracle XE via Docker on Linux (CDB: XE/FREE - version 23)
+
+**Oracle Sql Client:** SQL Developer vscode Extension
+
 **Repo name:** `oracle_pdb_ass_II_28924_ikuzwe`
 
 ## Overview of Tasks
@@ -19,15 +22,6 @@
 2. Task 2: Create a temporary PDB, verify it exists, delete it completely, confirm gone.
 3. Task 3: Access Oracle Enterprise Manager (OEM) dashboard showing environment + PDBs.
 4. Task 4: Document all work professionally on public GitHub with screenshots.
-
-## Oracle Environment Used
-
-* Host OS: Linux (Ubuntu - update version)
-* Oracle in Docker: `gvenzl/oracle-xe` - update exact image/tag
-* Container name: `oracle-xe` - update to yours
-* CDB Name: `XE` - update to yours (XE or FREE)
-* Connection: SYS AS SYSDBA to CDB root, then ALTER SESSION SET CONTAINER
-* OEM URL: https://localhost:5500/em
 
 ## Task Explanations
 
@@ -38,30 +32,35 @@
   1. Connected to CDB root as SYSDBA, checked `SHOW PDBS;`
   2. Created PDB from SEED, opened it READ WRITE, saved state.
   3. Switched to PDB, created user, granted CONNECT, RESOURCE, verified in DBA_USERS.
-* Evidence: `screenshots/pdb_creation/`
+* Evidence:
+  * PDB creation:
+
+  ![PDB Creation](screenshots/pdb_creation.png)
+
+  * User inside PDB:
+
+  ![User Creation](screenshots/user_creation.png)
 
 ### Task 2: Create and Delete PDB
 * Temp PDB Name: `ik_to_delete_pdb_28924`
 * Steps done:
   1. Created temp PDB from SEED, verified with `SHOW PDBS;`
   2. Closed PDB, dropped with INCLUDING DATAFILES, verified gone with `SHOW PDBS;`
-* Evidence: `screenshots/pdb_deletion/`
+* Evidence:
+
+  ![PDB Deletion](screenshots/pdb_deletion.png)
 
 ### Task 3: OEM Setup
 * Accessed OEM at `https://localhost:5500/em`, logged in, dashboard shows CDB + PDBs.
 * Username visible on dashboard top-right.
-* Evidence: `screenshots/oem_dashboard/`
+* Evidence:
 
-## Results / Screenshots
-
-* `screenshots/pdb_creation/01_pdb_create.png` - creation command + result
-* `screenshots/pdb_creation/02_pdb_open.png` - open state
-* `screenshots/pdb_creation/03_user_created.png` - username visible
-* `screenshots/pdb_deletion/01_temp_create.png`
-* `screenshots/pdb_deletion/02_temp_drop.png`
-* `screenshots/oem_dashboard/01_oem.png`
+  ![OEM Dashboard](screenshots/oem_dashboard.png)
 
 ## Challenges Faced
+
+* Could not access Enterprise Manager (OEM) on `https://localhost:5500/em` on Linux host port did not respond using official oracle docker image container-registry.oracle.com/database/free.
+* Fixed by switching to a Docker image with EM Express enabled and re-creating the container with port `5500` published, then verified OEM login and PDBs on the dashboard.
 
 
 ## Integrity Statement
