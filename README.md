@@ -52,20 +52,6 @@
 * Username visible on dashboard top-right.
 * Evidence: `screenshots/oem_dashboard/`
 
-## Queries / Commands Log
-<!-- Paste YOUR OWN typed queries here after you run them in Docker -->
-
-```sql
--- 1. Check existing PDBs
-SHOW PDBS;
-
--- 2. Task 1: paste your CREATE PLUGGABLE DATABASE ... here
--- 3. Task 1: paste your ALTER PLUGGABLE DATABASE ... OPEN here
--- 4. Task 1: paste your CREATE USER ... here
-
--- 5. Task 2: paste your temp PDB create / drop here
-```
-
 ## Results / Screenshots
 
 * `screenshots/pdb_creation/01_pdb_create.png` - creation command + result
@@ -77,22 +63,14 @@ SHOW PDBS;
 
 ## Challenges Faced
 
-* Challenge 1: Docker port 5500 not mapped / PDB in MOUNTED state - Resolution: TBD by student
-* Challenge 2: ORA-65096 invalid common user - Resolution: switched container with ALTER SESSION SET CONTAINER
-* Update with your real issues or write: No major issues encountered.
 
 ## Integrity Statement
-I, Ikuzwe Shema Elie (28924), declare this work is my own individual execution and documentation. No copying from classmates, no shared screenshots/repos, no AI-generated commands. All screenshots are from my own Docker Oracle environment.
+I, Ikuzwe Shema Elie (28924), declare this work is my own individual execution and documentation. No copying from classmates, no shared screenshots/repos. All screenshots are from my own Computer.
 
 ## Submission Details Block
 
 ```
 Repository Link: https://github.com/shemaikuzwe/oracle_pdb_ass_II_28924_ikuzwe
 PDB Name Created: ik_pdb_28924
-Issues Encountered: No
+Issues Encountered: Yes
 ```
-
-## How to Reproduce
-1. Start Docker Oracle container
-2. Connect as SYSDBA, run queries from Queries section above
-3. Open OEM URL to verify
